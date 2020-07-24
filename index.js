@@ -14,9 +14,9 @@ const octokit = new Octokit({ auth: `token ${githubToken}` });
 
 async function main() {
   const stats = await wakatime.getMyStats({ range: RANGE.LAST_7_DAYS });
-  console.info(`done gtMyStats()\n`);
+  console.error(`done gtMyStats()\n`);
   await updateGist(stats);
-  console.info(`done updateGist()\n`);
+  console.error(`done updateGist()\n`);
 }
 
 async function updateGist(stats) {
@@ -42,7 +42,7 @@ async function updateGist(stats) {
       String(percent.toFixed(1)).padStart(5) + "%"
     ];
 
-    console.info(`line = ` + line + `\n`);
+    console.error(`line = ` + line + `\n`);
     lines.push(line.join(" "));
   }
 
