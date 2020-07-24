@@ -14,7 +14,7 @@ const octokit = new Octokit({ auth: `token ${githubToken}` });
 
 async function main() {
   const stats = await wakatime.getMyStats({ range: RANGE.LAST_7_DAYS });
-  console.error(`done gtMyStats(): ` + stats + `...\n`);
+  console.error(`done gtMyStats(): ` + JSON.stringify(stats) + `...\n`);
   await updateGist(stats);
   console.error(`done updateGist()\n`);
 }
