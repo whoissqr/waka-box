@@ -22,7 +22,7 @@ async function updateGist(stats) {
   try {
     gist = await octokit.gists.get({ gist_id: gistId });
   } catch (error) {
-    console.error(`gistID = ` + gistId + `\n`);
+    //console.error(`gistID = ` + gistId + `\n`);
     console.error(`Unable to get gist\n${error}`);
   }
 
@@ -38,6 +38,7 @@ async function updateGist(stats) {
       String(percent.toFixed(1)).padStart(5) + "%"
     ];
 
+    console.info(`line = ` + line + `\n`);
     lines.push(line.join(" "));
   }
 
