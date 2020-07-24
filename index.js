@@ -14,7 +14,9 @@ const octokit = new Octokit({ auth: `token ${githubToken}` });
 
 async function main() {
   const stats = await wakatime.getMyStats({ range: RANGE.LAST_7_DAYS });
+  console.info(`done gtMyStats()\n`);
   await updateGist(stats);
+  console.info(`done updateGist()\n`);
 }
 
 async function updateGist(stats) {
@@ -26,6 +28,8 @@ async function updateGist(stats) {
     console.error(`Unable to get gist: ${error}`);
   }
 
+  console.info(`done gists.get()\n`);
+  
   const lines = [];
   for (let i = 0; i < Math.min(stats.data.languages.length, 6); i++) {
     const data = stats.data.languages[i];
