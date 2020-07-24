@@ -23,7 +23,7 @@ async function updateGist(stats) {
     gist = await octokit.gists.get({ gist_id: gistId });
   } catch (error) {
     //console.error(`gistID = ` + gistId + `\n`);
-    console.error(`Unable to get gist\n${error}`);
+    console.error(`Unable to get gist: ${error}`);
   }
 
   const lines = [];
@@ -55,7 +55,7 @@ async function updateGist(stats) {
       }
     });
   } catch (error) {
-    console.error(`Unable to update gist\n${error}`);
+    console.error(`Unable to update gist: ${error}`);
   }
 }
 
